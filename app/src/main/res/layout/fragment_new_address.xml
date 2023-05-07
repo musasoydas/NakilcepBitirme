@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.successUser.NewAddress">
+
+        <EditText
+            android:id="@+id/authorizedName"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_input_text"
+            android:drawablePadding="7dp"
+            android:elevation="5dp"
+            android:ems="10"
+            android:hint="Yetkili İsim Soyisim"
+            android:padding="10dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/authorizedPhone"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_input_text"
+            android:drawablePadding="7dp"
+            android:elevation="5dp"
+            android:ems="10"
+            android:hint="Yetkili  Telefon "
+            android:inputType="phone"
+            android:padding="10dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/authorizedName"
+            app:layout_constraintStart_toStartOf="@+id/authorizedName"
+            app:layout_constraintTop_toBottomOf="@+id/authorizedName" />
+
+        <EditText
+            android:id="@+id/adressTitle"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_input_text"
+            android:drawablePadding="7dp"
+            android:elevation="5dp"
+            android:ems="10"
+            android:hint="Adres Başlığı(ev ,depo vb.)"
+            android:padding="10dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/authorizedPhone"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/authorizedPhone"
+            app:layout_constraintTop_toBottomOf="@+id/authorizedPhone" />
+
+        <EditText
+            android:id="@+id/ProvinceName"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_input_text"
+            android:drawablePadding="7dp"
+            android:elevation="5dp"
+            android:ems="10"
+            android:hint="İl Adını Giriniz"
+            android:padding="10dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/adressTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/adressTitle"
+            app:layout_constraintTop_toBottomOf="@+id/adressTitle" />
+
+        <EditText
+            android:id="@+id/districtName"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_input_text"
+            android:drawablePadding="7dp"
+            android:elevation="5dp"
+            android:ems="10"
+            android:hint="İlçe Adını Giriniz"
+            android:padding="10dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/ProvinceName"
+            app:layout_constraintStart_toStartOf="@+id/ProvinceName"
+            app:layout_constraintTop_toBottomOf="@+id/ProvinceName" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/districtName">
+
+            <EditText
+                android:id="@+id/NeighbourhoodName"
+                android:layout_width="0dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_input_text"
+                android:drawablePadding="7dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:hint="Mahalle"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/districtName" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/streetName"
+                android:layout_width="0dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_input_text"
+                android:drawablePadding="7dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:hint="Sokak"
+                android:paddingStart="10dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/districtName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <EditText
+                android:id="@+id/apartmentNo"
+                android:layout_width="0dp"
+                android:layout_height="57dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_input_text"
+                android:drawablePadding="7dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:hint="Bina numarası"
+                android:padding="10dp"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="44dp"
+                tools:layout_editor_absoluteY="699dp" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/doorNo"
+                android:layout_width="0dp"
+                android:layout_height="57dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_input_text"
+                android:drawablePadding="7dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:hint="Kapı Numarası"
+                android:padding="10dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.385"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="642dp" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/openAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/custom_input_text"
+            android:drawablePadding="7dp"
+            android:elevation="5dp"
+            android:ems="10"
+            android:hint="Açık Adresiniz"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:minLines="2"
+            android:padding="10dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <Button
+            android:id="@+id/btnSaveAddress"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/custom_button"
+            android:text="Adresimi Kaydet"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/openAddress" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

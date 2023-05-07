@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".view.unsuccessUser.SignUpFragment">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="366dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="200dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radio_yuk_verici"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_radiobutton"
+            android:drawablePadding="7dp"
+            android:elevation="5dp"
+            android:padding="10dp"
+            android:text="Yük Vereceğim " />
+
+        <RadioButton
+            android:id="@+id/radiı_yuk_tasiyici"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_radiobutton"
+            android:drawablePadding="7dp"
+            android:elevation="5dp"
+            android:padding="10dp"
+            android:text="Yük Taşıyacağım" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/signUp_name"
+        android:layout_width="300dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custom_input_text"
+        android:drawableLeft="@android:drawable/ic_menu_help"
+        android:drawablePadding="7dp"
+        android:elevation="5dp"
+        android:ems="10"
+        android:hint="İsim Giriniz"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <EditText
+        android:id="@+id/signUp_lastname"
+        android:layout_width="300dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_input_text"
+        android:drawableLeft="@android:drawable/ic_menu_help"
+        android:drawablePadding="7dp"
+        android:elevation="5dp"
+        android:ems="10"
+        android:hint="Soyisim Giriniz"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/signUp_name"
+        app:layout_constraintStart_toStartOf="@+id/signUp_name"
+        app:layout_constraintTop_toBottomOf="@+id/signUp_name" />
+
+    <EditText
+        android:id="@+id/signUp_eposta"
+        android:layout_width="300dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_input_text"
+        android:drawableLeft="@android:drawable/sym_action_email"
+        android:drawablePadding="7dp"
+        android:elevation="5dp"
+        android:ems="10"
+        android:hint="E Posta Giriniz"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/signUp_lastname"
+        app:layout_constraintStart_toStartOf="@+id/signUp_lastname"
+        app:layout_constraintTop_toBottomOf="@+id/signUp_lastname" />
+
+    <EditText
+        android:id="@+id/signUp_Password"
+        android:layout_width="300dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_input_text"
+        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+        android:drawablePadding="7dp"
+        android:elevation="5dp"
+        android:ems="10"
+        android:hint="Şifre Giriniz"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/signUp_eposta"
+        app:layout_constraintStart_toStartOf="@+id/signUp_eposta"
+        app:layout_constraintTop_toBottomOf="@+id/signUp_eposta" />
+
+    <EditText
+        android:id="@+id/signUp_againPassword"
+        android:layout_width="300dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/custom_input_text"
+        android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+        android:drawablePadding="7dp"
+        android:elevation="5dp"
+        android:ems="10"
+        android:hint="Şifrenizi Tekrar Giriniz"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/signUp_Password"
+        app:layout_constraintStart_toStartOf="@+id/signUp_Password"
+        app:layout_constraintTop_toBottomOf="@+id/signUp_Password" />
+
+    <CheckBox
+        android:id="@+id/kosul_chechbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Kullanım Koşullarını okumudum ve onaylıyorum"
+        app:layout_constraintEnd_toEndOf="@+id/signUp_againPassword"
+        app:layout_constraintStart_toStartOf="@+id/signUp_againPassword"
+        app:layout_constraintTop_toBottomOf="@+id/signUp_againPassword" />
+
+    <Button
+        android:id="@+id/signUp_btn_uye_ol"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="19sp"
+        android:text="üye ol"
+        android:background="@drawable/custom_button"
+        app:layout_constraintEnd_toEndOf="@+id/kosul_chechbox"
+        app:layout_constraintStart_toStartOf="@+id/kosul_chechbox"
+        app:layout_constraintTop_toBottomOf="@+id/kosul_chechbox" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="25dp"
+        android:text="Hesabınız var mı ? "
+        app:layout_constraintStart_toStartOf="@+id/signUp_btn_uye_ol"
+        app:layout_constraintTop_toBottomOf="@+id/signUp_btn_uye_ol" />
+
+
+    <TextView
+        android:id="@+id/signUp_txt_GiriseDon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="60dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="Giriş Yap"
+        app:layout_constraintEnd_toEndOf="@+id/signUp_btn_uye_ol"
+        app:layout_constraintTop_toBottomOf="@+id/signUp_btn_uye_ol" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

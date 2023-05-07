@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_yukbul"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/creatLoadFragment"
+        android:name="com.example.nakilcep.view.successUser.CreatLoadFragment"
+        android:label="fragment_creat_load_fragment"
+        tools:layout="@layout/fragment_creat_load_fragment" >
+        <action
+            android:id="@+id/action_creatLoadFragment_to_newAddress"
+            app:destination="@id/newAddress" />
+        <action
+            android:id="@+id/action_creatLoadFragment_to_registeredAddress"
+            app:destination="@id/registeredAddress"
+            />
+        <argument
+            android:name="openAddress"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""/>
+        <argument
+            android:name="addressType"
+            app:argType="string"
+            android:defaultValue="&quot;&quot;"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_creatLoadFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.nakilcep.view.successUser.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_creatLoadFragment"
+            app:destination="@id/creatLoadFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_JobListingsFragment2"
+            app:destination="@id/jobListingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loadsFragment"
+        android:name="com.example.nakilcep.view.successUser.LoadsFragment"
+        android:label="fragment_loads"
+        tools:layout="@layout/fragment_loads" />
+    <fragment
+        android:id="@+id/offersFragment"
+        android:name="com.example.nakilcep.view.successUser.OffersFragment"
+        android:label="fragment_offers"
+        tools:layout="@layout/fragment_offers" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.nakilcep.view.successUser.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_allTransport"
+            app:destination="@id/allTransport" />
+    </fragment>
+    <fragment
+        android:id="@+id/newAddress"
+        android:name="com.example.nakilcep.view.successUser.NewAddress"
+        android:label="fragment_new_address"
+        tools:layout="@layout/fragment_new_address" >
+        <action
+            android:id="@+id/action_newAddress_to_creatLoadFragment"
+            app:destination="@id/creatLoadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jobListingsFragment"
+        android:name="com.example.nakilcep.view.successUser.JobListingsFragment"
+        android:label="fragment_job_listings"
+        tools:layout="@layout/fragment_job_listings" >
+        <action
+            android:id="@+id/action_jobListingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registeredAddress"
+        android:name="com.example.nakilcep.view.successUser.RegisteredAddress"
+        android:label="fragment_registered_address"
+        tools:layout="@layout/fragment_registered_address" >
+        <action
+            android:id="@+id/action_registeredAddress_to_creatLoadFragment"
+            app:destination="@id/creatLoadFragment" />
+        <argument
+            android:name="addressType"
+            app:argType="string"
+            android:defaultValue="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/allTransport"
+        android:name="com.example.nakilcep.view.successUser.AllTransport"
+        android:label="fragment_all_transport"
+        tools:layout="@layout/fragment_all_transport" />
+    <fragment
+        android:id="@+id/completedTransport"
+        android:name="com.example.nakilcep.view.successUser.CompletedTransport"
+        android:label="fragment_completed_transport"
+        tools:layout="@layout/fragment_completed_transport" />
+    <fragment
+        android:id="@+id/ongoingTransport"
+        android:name="com.example.nakilcep.view.successUser.OngoingTransport"
+        android:label="fragment_ongoing_transport"
+        tools:layout="@layout/fragment_ongoing_transport" />
+</navigation>

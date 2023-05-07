@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Nakilcep</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="loadGenus">
+        <item>Tekstil</item>
+        <item>Sağlık</item>
+        <item>Demir-Çelik</item>
+        <item>Boru-Profil</item>
+        <item>Sıvı-Gıda</item>
+        <item>Donuk Taşıma</item>
+        <item>Yedek Parça</item>
+        <item>Diğer</item>
+    </string-array>
+    <string-array name="loadType">
+        <item>Paletli</item>
+        <item>Kolili</item>
+        <item>Dökme</item>
+        <item>Çuvallı</item>
+        <item>Diğer</item>
+    </string-array>
+    <string-array name="loadingType">
+        <item>Vinç</item>
+        <item>Forklift</item>
+        <item>Elle</item>
+        <item>Diğer</item>
+    </string-array>
+
+
+</resources>

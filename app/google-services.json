@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "423431186481",
+    "project_id": "nakilcep",
+    "storage_bucket": "nakilcep.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423431186481:android:cecda1a79aa70ec4088d10",
+        "android_client_info": {
+          "package_name": "com.example.nakilcep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423431186481-7l1mpi7j3jsquf0cq14158ib15vhqgij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6abj-dQtb4ZiMm6ezltJ9a9pHQ6e0mDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423431186481-7l1mpi7j3jsquf0cq14158ib15vhqgij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

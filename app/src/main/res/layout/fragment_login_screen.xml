@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    tools:context=".view.unsuccessUser.LoginScreen">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:text="NAKİLCEP "
+        android:textColor="#FFFFFF"
+        android:textSize="70sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="50dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="350dp"
+            android:layout_height="350dp">
+
+
+            <EditText
+                android:id="@+id/login_email_text"
+                android:layout_width="331dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/custom_input_text"
+                android:drawableLeft="@android:drawable/sym_action_email"
+                android:drawablePadding="7dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="sans-serif"
+                android:hint="Lütfen Email Adresini Giriniz"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/login_password_text"
+                android:layout_width="331dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/custom_input_text"
+                android:drawableLeft="@android:drawable/ic_lock_idle_lock"
+                android:drawablePadding="7dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:hint="Şifrenizi Giriniz"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/login_email_text"
+                app:layout_constraintStart_toStartOf="@+id/login_email_text"
+                app:layout_constraintTop_toBottomOf="@+id/login_email_text" />
+
+
+            <Button
+                android:id="@+id/loginBtnGirisYap"
+                android:layout_width="331dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/custom_button"
+                android:onClick="girisYap"
+                android:text="Giriş Yap"
+                android:textAllCaps="false"
+                android:textSize="19sp"
+                app:layout_constraintEnd_toEndOf="@+id/login_password_text"
+                app:layout_constraintStart_toStartOf="@+id/login_password_text"
+                app:layout_constraintTop_toBottomOf="@+id/login_password_text" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="30dp"
+                android:text="Hesabınız yok mu ? "
+                app:layout_constraintStart_toStartOf="@+id/loginBtnGirisYap"
+                app:layout_constraintTop_toBottomOf="@+id/loginBtnGirisYap" />
+
+            <Button
+                android:id="@+id/login_btn_KayitOl"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/custom_button"
+                android:text="Kayıt Ol "
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/loginBtnGirisYap"
+                app:layout_constraintTop_toBottomOf="@+id/loginBtnGirisYap" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="95dp"
+                android:layout_marginTop="12dp"
+                android:text="Şifrenizi mi unuttunuz ? "
+                app:layout_constraintStart_toStartOf="@+id/login_password_text"
+                app:layout_constraintTop_toBottomOf="@+id/login_password_text" />
+
+            <TextView
+                android:id="@+id/sifreunuttum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="5dp"
+                android:text="TIKLAYINIZ.."
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/login_password_text"
+                app:layout_constraintTop_toBottomOf="@+id/login_password_text" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

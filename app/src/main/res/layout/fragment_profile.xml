@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.successUser.ProfileFragment">
+
+
+    <Button
+        android:id="@+id/btnAllTransport"
+        android:layout_width="331dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/custom_button"
+        android:drawableRight="@drawable/baseline_keyboard_double_arrow_right_24"
+        android:text="Bütün Taşımalarım "
+        android:textAllCaps="false"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="@+id/loadsFragmentEndingTransport"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/loadsFragmentEndingTransport"
+        app:layout_constraintTop_toBottomOf="@+id/loadsFragmentEndingTransport" />
+
+    <Button
+        android:id="@+id/loadsFragmentOngoingTransport"
+        android:layout_width="331dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/custom_button"
+        android:drawableRight="@drawable/baseline_keyboard_double_arrow_right_24"
+        android:text="Devam Eden Taşımalarım "
+        android:textAllCaps="false"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.362"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/loadsFragmentEndingTransport"
+        android:layout_width="331dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/custom_button"
+        android:drawableRight="@drawable/baseline_keyboard_double_arrow_right_24"
+        android:text="Tamamlanan Taşımalarım "
+        android:textAllCaps="false"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="@+id/loadsFragmentOngoingTransport"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/loadsFragmentOngoingTransport"
+        app:layout_constraintTop_toBottomOf="@+id/loadsFragmentOngoingTransport" />
+
+    <Button
+        android:id="@+id/cikisYap"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_button"
+        android:text="Çıkış Yap "
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
