@@ -31,7 +31,7 @@ class LoadsFragment : Fragment() {
         database = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
         recyclerAdapter()
-        val userId = auth.currentUser!!.uid
+//        val userId = auth.currentUser!!.uid
         database.collection("Post").addSnapshotListener { value, error ->
 
                 if (value != null && !value.isEmpty) {
@@ -44,13 +44,14 @@ class LoadsFragment : Fragment() {
                         val deliveryPoint = document.get("deliveryPoint").toString()
                         val loadTakeDate = document.get("loadTakeDate").toString()
                         val loadGiveDate = document.get("loadGiveDate").toString()
+                        val documentId=document.get("documentId").toString()
                         val downloadLoad = Loads(
                             loadTitle,
                             loadingPoint,
                             deliveryPoint,
                             loadTakeDate,
-                            loadGiveDate
-                        )
+                            loadGiveDate,
+                            documentId)
                         loadsList.add(downloadLoad)
 
                     }

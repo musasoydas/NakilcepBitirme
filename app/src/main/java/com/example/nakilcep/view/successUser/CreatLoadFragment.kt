@@ -1,11 +1,20 @@
 package com.example.nakilcep.view.successUser
 
 import android.app.DatePickerDialog
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
@@ -15,6 +24,7 @@ import com.example.nakilcep.R
 import com.example.nakilcep.databinding.FragmentCreatLoadFragmentBinding
 import com.example.nakilcep.extensions.showDialog
 import com.example.nakilcep.extensions.showToast
+import com.example.nakilcep.view.unsuccessUser.MainActivity
 import com.example.nakilcep.viewmodel.CreateLoadViewModel
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
@@ -27,8 +37,6 @@ class CreatLoadFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseFirestore
     private val args: CreatLoadFragmentArgs by navArgs()
-
-
     private val viewModel: CreateLoadViewModel by viewModels()
 
     override fun onCreateView(
@@ -44,21 +52,20 @@ class CreatLoadFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseFirestore.getInstance()
+
         val calender = Calendar.getInstance()
         val year = calender.get(Calendar.YEAR)
         val month = calender.get(Calendar.MONTH)
         val day = calender.get(Calendar.DAY_OF_MONTH)
         CreatdropDowns()
 
-
-
         viewModel.teslimatNoktasi.observe(viewLifecycleOwner) {
             binding.teslimatNoktasi.text = it
         }
-
         viewModel.yuklemeNoktasi.observe(viewLifecycleOwner) {
             binding.yuklemeNoktasi.text = it
         }
+
         binding.alisTarihi.setOnClickListener {
             val dpd = DatePickerDialog(
                 requireContext(),
@@ -69,8 +76,6 @@ class CreatLoadFragment : Fragment() {
             )
             dpd.show()
         }
-
-
         binding.verisTarihi.setOnClickListener {
             val dpd = DatePickerDialog(
                 requireContext(),
@@ -80,9 +85,7 @@ class CreatLoadFragment : Fragment() {
             )
             dpd.show()
         }
-
         binding.yuklemeNoktasi.setOnClickListener {
-
             requireContext().showDialog(
                 R.drawable.question,
                 "Adres Seçin",
@@ -92,18 +95,15 @@ class CreatLoadFragment : Fragment() {
                 onPositiveClick = {
                     val action = CreatLoadFragmentDirections.actionCreatLoadFragmentToNewAddress()
                     findNavController().navigate(action)
-
                 },
                 onNegativeClick = {
                     val action =
                         CreatLoadFragmentDirections.actionCreatLoadFragmentToRegisteredAddress("yukleme")
                     findNavController().navigate(action)
-
                 }
             )
         }
         binding.teslimatNoktasi.setOnClickListener {
-
             requireContext().showDialog(
                 R.drawable.question,
                 "Adres Seçin",
@@ -113,17 +113,14 @@ class CreatLoadFragment : Fragment() {
                 onPositiveClick = {
                     val action = CreatLoadFragmentDirections.actionCreatLoadFragmentToNewAddress()
                     findNavController().navigate(action)
-
                 },
                 onNegativeClick = {
                     val action =
                         CreatLoadFragmentDirections.actionCreatLoadFragmentToRegisteredAddress("teslimat")
                     findNavController().navigate(action)
-
                 }
             )
         }
-
         setFragmentResultListener("CreateLoad") { _, bundle ->
             bundle.getString("fromFragment")?.let {
                 bundle.getString("address")?.let { address ->
@@ -139,6 +136,7 @@ class CreatLoadFragment : Fragment() {
     }
 
     fun btnCreatLoadListener() {
+
         with(binding)
         {
             binding.btnLoadCreat.setOnClickListener {
@@ -156,19 +154,24 @@ class CreatLoadFragment : Fragment() {
                     "loadGenus" to loadTypeDropdown.text.toString(),
                     "loadType" to loadTypeDropdown2.text.toString(),
                     "loadingType" to loadTypeDropdown3.text.toString(),
-                    "loadExplanation" to loadExplanation.text.toString().trim()
+                    "loadExplanation" to loadExplanation.text.toString().trim(),
+                    "documentId" to ""
                     )
                 database.collection("Post").add(postMap).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         //başarılı oldu
-                        println("kayıt başarı ile oluşturuldu")
-                        requireContext().showToast("İlan Başırılı İle Oluşturuldu")
-//                        val action=CreatLoadFragmentDirections.action_creatLoadFragment_to_homeFragment
+
+                        showNatification()
+
+//                       val action=CreatLoadFragmentDirections.action_creatLoadFragment_to_homeFragment
                     }
+                }.addOnSuccessListener {documentReferences ->
+                    val belgeId= documentReferences.id
+                    documentReferences.update("documentId", belgeId)
+
                 }.addOnFailureListener { exception ->
                     //ilan yüklenirken hata olursa eklenecekler
                     requireContext().showToast("HATA ALINDI")
-
                 }
             }
         }
@@ -180,6 +183,46 @@ class CreatLoadFragment : Fragment() {
         binding.loadTypeDropdown2.setAdapter(dropDownAdapterLoadType)
         val dropDownAdapterLoadingType = ArrayAdapter(requireContext(),R.layout.custom_view_dropdown,resources.getStringArray(R.array.loadingType))
         binding.loadTypeDropdown3.setAdapter(dropDownAdapterLoadingType)
+    }
+
+    private fun showNatification(){
+        val builder: NotificationCompat.Builder
+        val notificationManager= requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val intent=Intent(requireContext(),MainActivity::class.java)
+        val pendingIntent=PendingIntent.getActivity(requireContext(),1,intent,PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val CHANNEL_ID = "kanal_id"
+        val NOTIFICATION_ID = 1
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channelName="kanalAd"
+            val kanalTanim="kanalTanım"
+            val channelOnceligi=NotificationManager.IMPORTANCE_HIGH
+            var channell : NotificationChannel?=notificationManager.getNotificationChannel(CHANNEL_ID)
+            if(channell==null){
+                channell=NotificationChannel(CHANNEL_ID,channelName,channelOnceligi)
+                channell.description=kanalTanim
+                notificationManager.createNotificationChannel(channell)
+            }
+            builder=NotificationCompat.Builder(requireContext(),CHANNEL_ID)
+            builder.setSmallIcon(R.drawable.appicon)
+                .setContentTitle("İlan Oluşturuldu")
+                .setContentText("İlanınız başrılı şekilde oluşturulmuştur. ")
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+
+
+
+        }else {
+            builder = NotificationCompat.Builder(requireContext())
+                .setSmallIcon(R.drawable.appicon)
+                .setContentTitle("İlan Oluşturuldu")
+                .setContentText("İlanınız başrılı şekilde oluşturulmuştur. ")
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+//                .priority=Notification.PRIORITY_HIGH
+
+        }
+        notificationManager.notify(1, builder.build())
     }
 }
 

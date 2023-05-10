@@ -49,13 +49,14 @@ class AllTransport : Fragment() {
                         val deliveryPoint = document.get("deliveryPoint").toString()
                         val loadTakeDate = document.get("loadTakeDate").toString()
                         val loadGiveDate = document.get("loadGiveDate").toString()
+                        val documentId=document.get("documentId").toString()
                         val downloadLoad = Loads(
                             loadTitle,
                             loadingPoint,
                             deliveryPoint,
                             loadTakeDate,
-                            loadGiveDate
-                        )
+                            loadGiveDate,
+                            documentId,)
                         loadList.add(downloadLoad)
                     }
                     recyclerViewLoadsAdapter.notifyDataSetChanged()//yeni veri geldi haberin olsun!

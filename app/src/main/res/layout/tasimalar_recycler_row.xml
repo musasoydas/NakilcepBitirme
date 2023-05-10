@@ -22,30 +22,75 @@
             android:padding="5dp"
             android:text="Ev"
             android:textColor="@color/black"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/recyclerRowFromWhere"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:padding="5dp"
-            android:text="kocaeli"
-            android:textSize="12sp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/recyclerRowToWhere"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/rec1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="Nereden : "
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/recyclerRowFromWhere"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="kocaeli"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:padding="5dp"
-            android:text="ödalwödlşaöwödşöawdlaöşdwşaödşa"
-            android:textSize="12sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/rec2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="Nereye : "
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/recyclerRowToWhere"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="ödalwödlşaöwödşöawdlaöşdwşaödşa"
+                android:textSize="12sp" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/rec3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="Alış Tarihi : "
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/recyclerRowTakeDate"
                 android:layout_width="wrap_content"
@@ -55,15 +100,27 @@
                 android:padding="5dp"
                 android:text="ödalwöd"
                 android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/rec4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="Teslim Tarihi : "
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/recyclerRowGiveDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
                 android:layout_margin="5dp"
-                android:padding="5dp"
                 android:layout_marginLeft="15dp"
-                android:text="ödalwödlşaöwödşöawdlaöşdwşaödşa"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:text="09/10/2023"
                 android:textSize="12sp" />
         </LinearLayout>
 

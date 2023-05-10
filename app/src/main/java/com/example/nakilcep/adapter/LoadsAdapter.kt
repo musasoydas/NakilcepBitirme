@@ -25,10 +25,10 @@ class LoadsAdapter(val context:Context,val loadsList:ArrayList<Loads>) : Recycle
         with(holder.binding)
         {
             recyclerRowLoadTitle.text=loadsList[position].loadTitle
-            recyclerRowFromWhere.text="Nereden:  ${loadsList[position].loadingPoint}"
-            recyclerRowToWhere.text="Nereye : ${loadsList[position].deliveryPoint}"
-            recyclerRowTakeDate.text="Alış Tarihi: ${loadsList[position].loadTakeDate}"
-            recyclerRowGiveDate.text="Teslim Tarihi: ${loadsList[position].loadGiveDate}"
+            recyclerRowFromWhere.text="${loadsList[position].loadingPoint}"
+            recyclerRowToWhere.text="${loadsList[position].deliveryPoint}"
+            recyclerRowTakeDate.text="${loadsList[position].loadTakeDate}"
+            recyclerRowGiveDate.text="${loadsList[position].loadGiveDate}"
         }
     }
 }
