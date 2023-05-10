@@ -88,14 +88,14 @@
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
                 android:text="Alış Tarihi : "
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/recyclerRowTakeDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
                 android:text="ödalwöd"
@@ -105,9 +105,10 @@
                 android:id="@+id/rec4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
+                android:paddingEnd="0dp"
                 android:text="Teslim Tarihi : "
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -116,8 +117,7 @@
                 android:id="@+id/recyclerRowGiveDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:padding="5dp"
                 android:text="09/10/2023"
