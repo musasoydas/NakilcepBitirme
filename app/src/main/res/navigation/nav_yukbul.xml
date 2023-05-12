@@ -48,7 +48,11 @@
         android:id="@+id/loadsFragment"
         android:name="com.example.nakilcep.view.successUser.LoadsFragment"
         android:label="fragment_loads"
-        tools:layout="@layout/fragment_loads" />
+        tools:layout="@layout/fragment_loads" >
+        <action
+            android:id="@+id/action_loadsFragment_to_loadDetailFragment"
+            app:destination="@id/loadDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/offersFragment"
         android:name="com.example.nakilcep.view.successUser.OffersFragment"
@@ -109,4 +113,15 @@
         android:name="com.example.nakilcep.view.successUser.OngoingTransport"
         android:label="fragment_ongoing_transport"
         tools:layout="@layout/fragment_ongoing_transport" />
+    <fragment
+        android:id="@+id/loadDetailFragment"
+        android:name="com.example.nakilcep.view.successUser.LoadDetailFragment"
+        android:label="fragment_load_detail"
+        tools:layout="@layout/fragment_load_detail" >
+        <argument
+            android:name="documentId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+    </fragment>
 </navigation>

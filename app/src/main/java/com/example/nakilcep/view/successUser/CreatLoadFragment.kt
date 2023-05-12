@@ -140,7 +140,6 @@ class CreatLoadFragment : Fragment() {
         with(binding)
         {
             binding.btnLoadCreat.setOnClickListener {
-
                 val postMap = hashMapOf(
                     "loadTakeDate" to alisTarihi.text.toString(),
                     "loadGiveDate" to verisTarihi.text.toString(),
@@ -160,10 +159,9 @@ class CreatLoadFragment : Fragment() {
                 database.collection("Post").add(postMap).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         //başarılı oldu
-
-                        showNatification()
-
-//                       val action=CreatLoadFragmentDirections.action_creatLoadFragment_to_homeFragment
+                        showNatification(loadTitle.text.toString())
+                        val action=CreatLoadFragmentDirections.actionCreatLoadFragmentToHomeFragment()
+                        findNavController().navigate(action)
                     }
                 }.addOnSuccessListener {documentReferences ->
                     val belgeId= documentReferences.id
@@ -185,14 +183,13 @@ class CreatLoadFragment : Fragment() {
         binding.loadTypeDropdown3.setAdapter(dropDownAdapterLoadingType)
     }
 
-    private fun showNatification(){
+    private fun showNatification(ilanAdi:String){
         val builder: NotificationCompat.Builder
         val notificationManager= requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val intent=Intent(requireContext(),MainActivity::class.java)
         val pendingIntent=PendingIntent.getActivity(requireContext(),1,intent,PendingIntent.FLAG_UPDATE_CURRENT)
 
         val CHANNEL_ID = "kanal_id"
-        val NOTIFICATION_ID = 1
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channelName="kanalAd"
             val kanalTanim="kanalTanım"
@@ -206,7 +203,7 @@ class CreatLoadFragment : Fragment() {
             builder=NotificationCompat.Builder(requireContext(),CHANNEL_ID)
             builder.setSmallIcon(R.drawable.appicon)
                 .setContentTitle("İlan Oluşturuldu")
-                .setContentText("İlanınız başrılı şekilde oluşturulmuştur. ")
+                .setContentText("$ilanAdi ilanınız başrılı şekilde oluşturulmuştur. ")
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
 
@@ -216,7 +213,7 @@ class CreatLoadFragment : Fragment() {
             builder = NotificationCompat.Builder(requireContext())
                 .setSmallIcon(R.drawable.appicon)
                 .setContentTitle("İlan Oluşturuldu")
-                .setContentText("İlanınız başrılı şekilde oluşturulmuştur. ")
+                .setContentText("$ilanAdi ilanınız başrılı şekilde oluşturulmuştur. ")
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
 //                .priority=Notification.PRIORITY_HIGH

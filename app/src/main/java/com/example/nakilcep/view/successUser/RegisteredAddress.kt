@@ -68,7 +68,7 @@ class RegisteredAddress : Fragment() {
                         listAddress.clear()
                         for (document in documents) {
                             var myAddress = Address(
-                                document.id,
+//                                document.id,
                                 document.get("currentUser") as String?,//bize any geldipinden cash ettik
                                 document.get("authorizedName") as String?,
                                 document.get("authorizedPhone") as String?,
@@ -80,7 +80,6 @@ class RegisteredAddress : Fragment() {
                                 document.get("apartmentNo") as String?,
                                 document.get("doorNo") as String?,
                                 document.get("openAddress") as String?
-
                             )
                             listAddress.add(myAddress)
                         }

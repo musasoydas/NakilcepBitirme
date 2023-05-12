@@ -39,7 +39,7 @@ class LoadsFragment : Fragment() {
                     val documents = value.documents
                     loadsList.clear()
                     for (document in documents) {
-                        val loadTitle = document.get("deliveryPoint").toString()
+                        val loadTitle = document.get("loadTitle").toString()
                         val loadingPoint = document.get("loadingPoint").toString()
                         val deliveryPoint = document.get("deliveryPoint").toString()
                         val loadTakeDate = document.get("loadTakeDate").toString()

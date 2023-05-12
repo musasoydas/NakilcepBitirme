@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 
 data class Address(
-    val documentID: String?,
+//    val documentID: String?,
     val curentUser: String?,
     val authorizedName: String?,
     val authorizedPhone: String?,

@@ -3,9 +3,11 @@ package com.example.nakilcep.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nakilcep.databinding.TasimalarRecyclerRowBinding
 import com.example.nakilcep.model.Loads
+import com.example.nakilcep.view.successUser.LoadsFragmentDirections
 
 class LoadsAdapter(val context:Context,val loadsList:ArrayList<Loads>) : RecyclerView.Adapter<LoadsAdapter.LoadsViewHolder>(){
     inner class LoadsViewHolder(val binding: TasimalarRecyclerRowBinding): RecyclerView.ViewHolder(binding.root){
@@ -24,11 +26,20 @@ class LoadsAdapter(val context:Context,val loadsList:ArrayList<Loads>) : Recycle
     override fun onBindViewHolder(holder: LoadsViewHolder, position: Int) {
         with(holder.binding)
         {
-            recyclerRowLoadTitle.text=loadsList[position].loadTitle
+            recyclerRowLoadTitle.text="${loadsList[position].loadTitle}"
             recyclerRowFromWhere.text="${loadsList[position].loadingPoint}"
             recyclerRowToWhere.text="${loadsList[position].deliveryPoint}"
             recyclerRowTakeDate.text="${loadsList[position].loadTakeDate}"
             recyclerRowGiveDate.text="${loadsList[position].loadGiveDate}"
+
+
+            recyclerRowCardView.setOnClickListener {
+                val action=LoadsFragmentDirections.actionLoadsFragmentToLoadDetailFragment(loadsList[position].documentId)
+                Navigation.findNavController(holder.itemView).navigate(action)
+            }
+
+
         }
+
     }
 }
