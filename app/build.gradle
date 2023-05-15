@@ -51,8 +51,8 @@ dependencies {
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:31.3.0')
     implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
     implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
     //navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
@@ -62,5 +62,8 @@ dependencies {
 
     //splash Screen Lottie
     implementation "com.airbnb.android:lottie:3.4.0"
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
 
 }

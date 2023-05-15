@@ -15,14 +15,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 class LoadsFragment : Fragment() {
     private lateinit var database: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
-    var loadsList=ArrayList<Loads>()
+    var loadsList = ArrayList<Loads>()
     private lateinit var recyclerViewLoadsAdapter: LoadsAdapter
     private lateinit var binding: FragmentLoadsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentLoadsBinding.inflate(inflater,container,false)
+        binding = FragmentLoadsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,37 +34,41 @@ class LoadsFragment : Fragment() {
 //        val userId = auth.currentUser!!.uid
         database.collection("Post").addSnapshotListener { value, error ->
 
-                if (value != null && !value.isEmpty) {
+            if (value != null && !value.isEmpty) {
 
-                    val documents = value.documents
-                    loadsList.clear()
-                    for (document in documents) {
-                        val loadTitle = document.get("loadTitle").toString()
-                        val loadingPoint = document.get("loadingPoint").toString()
-                        val deliveryPoint = document.get("deliveryPoint").toString()
-                        val loadTakeDate = document.get("loadTakeDate").toString()
-                        val loadGiveDate = document.get("loadGiveDate").toString()
-                        val documentId=document.get("documentId").toString()
-                        val downloadLoad = Loads(
-                            loadTitle,
-                            loadingPoint,
-                            deliveryPoint,
-                            loadTakeDate,
-                            loadGiveDate,
-                            documentId)
-                        loadsList.add(downloadLoad)
+                val documents = value.documents
+                loadsList.clear()
+                for (document in documents) {
+                    val loadTitle = document.get("loadTitle").toString()
+                    val loadingPoint = document.get("loadingPoint").toString()
+                    val deliveryPoint = document.get("deliveryPoint").toString()
+                    val loadTakeDate = document.get("loadTakeDate").toString()
+                    val loadGiveDate = document.get("loadGiveDate").toString()
+                    val documentId = document.get("documentId").toString()
+                    val downloadUrl = document.get("downloadUrl").toString()
+                    val downloadLoad = Loads(
+                        loadTitle,
+                        loadingPoint,
+                        deliveryPoint,
+                        loadTakeDate,
+                        loadGiveDate,
+                        documentId,
+                        downloadUrl
+                    )
+                    loadsList.add(downloadLoad)
 
-                    }
-                    recyclerViewLoadsAdapter.notifyDataSetChanged()//yeni veri geldi haberin olsun!
                 }
+                recyclerViewLoadsAdapter.notifyDataSetChanged()//yeni veri geldi haberin olsun!
             }
+        }
 
     }
+
     private fun recyclerAdapter() {
         var layoutManager = LinearLayoutManager(requireContext())
         binding.loadsFragmentRecyclerView.layoutManager = layoutManager
         recyclerViewLoadsAdapter = LoadsAdapter(requireContext(), loadsList)
         binding.loadsFragmentRecyclerView.adapter = recyclerViewLoadsAdapter
     }
-    
+
 }

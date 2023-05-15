@@ -6,7 +6,9 @@ data class Loads(
     val deliveryPoint: String?,
     val loadTakeDate: String?,
     val loadGiveDate: String?,
-    val documentId: String?
+    val documentId: String?,
+    val downloadUrl: String?
+
 //    val loadType: String?,
 //    val loadingType: String?,
 //    val postDate: String?,
@@ -14,5 +16,5 @@ data class Loads(
 //    val postId: String?,
 //    val loadExplantion : String?,
 //    val loadGenus: String?,
-) {
+    ) {
 }

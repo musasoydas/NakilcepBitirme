@@ -11,7 +11,10 @@ import com.example.nakilcep.databinding.FragmentLoadDetailBinding
 import com.example.nakilcep.databinding.FragmentLoadsBinding
 import com.example.nakilcep.model.Loads
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
 import java.util.ArrayList
+import java.util.Locale
 
 class LoadDetailFragment : Fragment() {
     private lateinit var binding: FragmentLoadDetailBinding
@@ -36,21 +39,38 @@ class LoadDetailFragment : Fragment() {
 
         var loadDetailList=ArrayList<Loads>()
 
-        binding.textViewdocumentId.text=documentId
+//        binding.textViewdocumentId.text=documentId
 
         database.collection("Post").whereEqualTo("documentId", documentId)
             .addSnapshotListener { value, error ->
                 if (value != null && !value.isEmpty) {
                     val documents = value.documents
                     for (document in documents) {
-                       binding.textViewdocumentId.text = document.get("loadTitle").toString()
-                        val loadingPoint = document.get("loadingPoint").toString()
-                        val deliveryPoint = document.get("deliveryPoint").toString()
-                        val loadTakeDate = document.get("loadTakeDate").toString()
-                        val loadGiveDate = document.get("loadGiveDate").toString()
-                        val documentId=document.get("documentId").toString()
+
+                        with(binding)
+                        {
+                            detailFragmentLoadTitle.text=document.get("loadTitle").toString()
+                            val downloadUrl=document.get("downloadUrl").toString()
+                            detailFragmentPostUser.text=document.get("postUser").toString()
+                            detailFragmenDetailDate.text=document.get("detailDate").toString()
+                            detailFragmentDocumentId.text=document.get("documentId").toString()
+                            detailFragmentLoadTakeDate.text = document.get("loadTakeDate").toString()
+                            detailFragmentLoadGiveDate.text = document.get("loadGiveDate").toString()
+                            detailFragmentLoadingPoint.text = document.get("loadingPoint").toString()
+                            detailFragmentDeliveryPoint.text = document.get("deliveryPoint").toString()
+                            detailFragmentLoadGenus.text = document.get("loadGenus").toString()
+                            detailFragmentLoadType.text = document.get("loadType").toString()
+                            detailFragmentLoadingType.text= document.get("loadingType").toString()
+                            detailFragmentLoadExplanation.text = document.get("loadExplanation").toString()
+                            Picasso.get().load(downloadUrl).into(binding.detailFragmentImageView)
+                        }
+
+
+
+
 
                     }
+
 
                 }
             }

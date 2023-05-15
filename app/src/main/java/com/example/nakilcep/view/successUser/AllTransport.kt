@@ -34,13 +34,12 @@ class AllTransport : Fragment() {
         val userId = auth.currentUser!!.uid
         database.collection("Post").whereEqualTo("userId", userId)
             .addSnapshotListener { value, error ->
-                if(value!!.isEmpty)
-                {
-                    binding.textView7.visibility=View.VISIBLE
-                    binding.textView7.text="Henüz Yük İlanınız yoktur"
+                if (value!!.isEmpty) {
+                    binding.textView7.visibility = View.VISIBLE
+                    binding.textView7.text = "Henüz Yük İlanınız yoktur"
                 }
                 if (value != null && !value.isEmpty) {
-                    binding.textView7.visibility=View.INVISIBLE
+                    binding.textView7.visibility = View.INVISIBLE
                     val documents = value.documents
                     loadList.clear()
                     for (document in documents) {
@@ -49,14 +48,17 @@ class AllTransport : Fragment() {
                         val deliveryPoint = document.get("deliveryPoint").toString()
                         val loadTakeDate = document.get("loadTakeDate").toString()
                         val loadGiveDate = document.get("loadGiveDate").toString()
-                        val documentId=document.get("documentId").toString()
+                        val documentId = document.get("documentId").toString()
+                        val downloadUrl = document.get("downloadUrl").toString()
                         val downloadLoad = Loads(
                             loadTitle,
                             loadingPoint,
                             deliveryPoint,
                             loadTakeDate,
                             loadGiveDate,
-                            documentId,)
+                            documentId,
+                            downloadUrl
+                        )
                         loadList.add(downloadLoad)
                     }
                     recyclerViewLoadsAdapter.notifyDataSetChanged()//yeni veri geldi haberin olsun!

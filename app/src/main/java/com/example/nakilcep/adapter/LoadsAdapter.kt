@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nakilcep.databinding.TasimalarRecyclerRowBinding
 import com.example.nakilcep.model.Loads
 import com.example.nakilcep.view.successUser.LoadsFragmentDirections
+import com.squareup.picasso.Picasso
 
 class LoadsAdapter(val context:Context,val loadsList:ArrayList<Loads>) : RecyclerView.Adapter<LoadsAdapter.LoadsViewHolder>(){
     inner class LoadsViewHolder(val binding: TasimalarRecyclerRowBinding): RecyclerView.ViewHolder(binding.root){
@@ -31,8 +32,7 @@ class LoadsAdapter(val context:Context,val loadsList:ArrayList<Loads>) : Recycle
             recyclerRowToWhere.text="${loadsList[position].deliveryPoint}"
             recyclerRowTakeDate.text="${loadsList[position].loadTakeDate}"
             recyclerRowGiveDate.text="${loadsList[position].loadGiveDate}"
-
-
+            Picasso.get().load(loadsList[position].downloadUrl).into(recyclerRowImageView)
             recyclerRowCardView.setOnClickListener {
                 val action=LoadsFragmentDirections.actionLoadsFragmentToLoadDetailFragment(loadsList[position].documentId)
                 Navigation.findNavController(holder.itemView).navigate(action)
