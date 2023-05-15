@@ -23,8 +23,10 @@
             android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/teslimatNoktasi"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/teslimatNoktasi"
             app:layout_constraintTop_toBottomOf="@+id/teslimatNoktasi" />
+
         <EditText
             android:id="@+id/loadExplanation"
             android:layout_width="297dp"
@@ -122,6 +124,7 @@
                 android:textCursorDrawable="@null"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/btnLoadCreat"
             android:layout_width="297dp"
@@ -200,6 +203,7 @@
             app:layout_constraintEnd_toEndOf="@+id/loadTitle"
             app:layout_constraintStart_toStartOf="@+id/loadTitle"
             app:layout_constraintTop_toBottomOf="@+id/loadTitle" />
+
         <TextView
             android:id="@+id/verisTarihi"
             android:layout_width="297dp"
@@ -218,5 +222,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/alisTarihi"
             app:layout_constraintTop_toBottomOf="@+id/alisTarihi" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
