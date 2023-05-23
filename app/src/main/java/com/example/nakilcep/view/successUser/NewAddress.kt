@@ -20,10 +20,6 @@ class NewAddress : Fragment() {
 
 
     private lateinit var binding: FragmentNewAddressBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,8 +30,6 @@ class NewAddress : Fragment() {
 
     }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -43,48 +37,29 @@ class NewAddress : Fragment() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseFirestore.getInstance()
         btnSaveAddressListener()
-
-
-
     }
-
-
 
     fun btnSaveAddressListener(){
 
         binding.btnSaveAddress.setOnClickListener {
 
-            val authorizedName = binding.authorizedName.text.toString().trim()
-            val authorizedPhone = binding.authorizedPhone.text.toString().trim()
-            val adressTitle = binding.adressTitle.text.toString().trim()
-            val ProvinceName = binding.ProvinceName.text.toString().trim()
-            val districtName = binding.districtName.text.toString().trim()
-            val NeighbourhoodName = binding.NeighbourhoodName.text.toString().trim()
-            val streetName = binding.streetName.text.toString().trim()
-            val apartmentNo = binding.apartmentNo.text.toString().trim()
-            val doorNo = binding.doorNo.text.toString().trim()
-            val openAddress = binding.openAddress.text.toString().trim()
-            var guncelKullaniciEmail = auth.currentUser!!.email.toString()
-
-
             // verileri kaydedeceğiz ama bunları anahtar değer eşleştimesi yapmak lazım
             val adressMap = hashMapOf(
-                "currentUser" to guncelKullaniciEmail,
-                "authorizedName" to authorizedName,
-                "authorizedPhone" to authorizedPhone,
-                "addressTitle" to adressTitle,
-                "ProvinceName" to ProvinceName,
-                "districtName" to districtName,
-                "NeighbourhoodName" to NeighbourhoodName,
-                "streetName" to streetName,
-                "apartmentNo" to apartmentNo,
-                "doorNo" to doorNo,
-                "openAddress" to openAddress,
+                "currentUser" to  auth.currentUser!!.email.toString(),
+                "authorizedName" to binding.authorizedName.text.toString().trim(),
+                "authorizedPhone" to  binding.authorizedPhone.text.toString().trim(),
+                "addressTitle" to  binding.adressTitle.text.toString().trim(),
+                "ProvinceName" to  binding.ProvinceName.text.toString().trim(),
+                "districtName" to binding.districtName.text.toString().trim(),
+                "NeighbourhoodName" to binding.NeighbourhoodName.text.toString().trim(),
+                "streetName" to binding.streetName.text.toString().trim(),
+                "apartmentNo" to binding.apartmentNo.text.toString().trim(),
+                "doorNo" to  binding.doorNo.text.toString().trim(),
+                "openAddress" to binding.openAddress.text.toString().trim(),
                 "history" to com.google.firebase.Timestamp.now()
             )
 
             val userID = auth.currentUser!!.uid //giriş yapmış olan kullanıcının UUİD sini getiren kod
-
             val userCollectionRef=database.collection("User")
             val userDocRef = userCollectionRef.document(userID)
             val adressCollectionRef = userDocRef.collection("Adress")
@@ -100,10 +75,6 @@ class NewAddress : Fragment() {
             }.addOnFailureListener {
                 Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_SHORT).show()
             }
-
-
         }
     }
-
-
 }

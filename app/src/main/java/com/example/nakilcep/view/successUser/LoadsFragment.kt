@@ -17,6 +17,7 @@ class LoadsFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     var loadsList = ArrayList<Loads>()
     private lateinit var recyclerViewLoadsAdapter: LoadsAdapter
+
     private lateinit var binding: FragmentLoadsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +32,7 @@ class LoadsFragment : Fragment() {
         database = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
         recyclerAdapter()
-//        val userId = auth.currentUser!!.uid
+//        val userId = auth. currentUser!!.uid
         database.collection("Post").addSnapshotListener { value, error ->
 
             if (value != null && !value.isEmpty) {
@@ -39,21 +40,15 @@ class LoadsFragment : Fragment() {
                 val documents = value.documents
                 loadsList.clear()
                 for (document in documents) {
-                    val loadTitle = document.get("loadTitle").toString()
-                    val loadingPoint = document.get("loadingPoint").toString()
-                    val deliveryPoint = document.get("deliveryPoint").toString()
-                    val loadTakeDate = document.get("loadTakeDate").toString()
-                    val loadGiveDate = document.get("loadGiveDate").toString()
-                    val documentId = document.get("documentId").toString()
-                    val downloadUrl = document.get("downloadUrl").toString()
+
                     val downloadLoad = Loads(
-                        loadTitle,
-                        loadingPoint,
-                        deliveryPoint,
-                        loadTakeDate,
-                        loadGiveDate,
-                        documentId,
-                        downloadUrl
+                        document.get("loadTitle").toString(),
+                        document.get("loadingPoint").toString(),
+                        document.get("deliveryPoint").toString(),
+                        document.get("loadTakeDate").toString(),
+                        document.get("loadGiveDate").toString(),
+                        document.get("documentId").toString(),
+                        document.get("downloadUrl").toString()
                     )
                     loadsList.add(downloadLoad)
 
@@ -61,7 +56,6 @@ class LoadsFragment : Fragment() {
                 recyclerViewLoadsAdapter.notifyDataSetChanged()//yeni veri geldi haberin olsun!
             }
         }
-
     }
 
     private fun recyclerAdapter() {

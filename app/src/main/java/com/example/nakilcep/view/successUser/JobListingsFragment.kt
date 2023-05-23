@@ -10,10 +10,6 @@ import com.example.nakilcep.databinding.FragmentJobListingsBinding
 
 class JobListingsFragment : Fragment() {
     private lateinit var binding: FragmentJobListingsBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
