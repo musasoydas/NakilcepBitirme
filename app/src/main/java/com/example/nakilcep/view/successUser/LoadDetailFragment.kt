@@ -5,14 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.nakilcep.R
+import com.example.nakilcep.databinding.BottomSheetLayoutBinding
 import com.example.nakilcep.databinding.FragmentLoadDetailBinding
 import com.example.nakilcep.databinding.FragmentLoadsBinding
 import com.example.nakilcep.model.Loads
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
@@ -96,12 +100,18 @@ class LoadDetailFragment : Fragment() {
              }
          }*/
         binding.btnGiveOffer.setOnClickListener {
+            val dialoBinding = BottomSheetLayoutBinding.inflate(layoutInflater)
             val dialog = BottomSheetDialog(requireContext())
-            dialog.setContentView(R.layout.bottom_sheet_layout)
+            dialog.setContentView(dialoBinding.root)
 
+            with(dialoBinding) {
+                btnTeklifVer.setOnClickListener {
 
+                }
+            }
 
             dialog.show()
+
         }
     }
 
