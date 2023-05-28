@@ -14,6 +14,7 @@ import com.example.nakilcep.R
 import com.example.nakilcep.databinding.BottomSheetLayoutBinding
 import com.example.nakilcep.databinding.FragmentLoadDetailBinding
 import com.example.nakilcep.databinding.FragmentLoadsBinding
+import com.example.nakilcep.extensions.showToast
 import com.example.nakilcep.model.Loads
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -82,23 +83,7 @@ class LoadDetailFragment : Fragment() {
     }
 
     fun btnGiveOfferListener() {
-        /* documentId?.let {
-             val documentRef = database.collection("Post").document(documentId!!)
-             documentRef.get().addOnSuccessListener { documentSnapshot ->
-                 if (documentSnapshot.exists()) {
-                     val uuid = auth.currentUser!!.uid
-                     val userData = documentSnapshot.data
-                     val postUser = userData?.get("postUser") as String
-                     val documentId = userData?.get("documentId") as String
-                     println(uuid)
-                     println(postUser)
-                     println(documentId)
 
-                 }
-
-
-             }
-         }*/
         binding.btnGiveOffer.setOnClickListener {
             val dialoBinding = BottomSheetLayoutBinding.inflate(layoutInflater)
             val dialog = BottomSheetDialog(requireContext())
@@ -106,14 +91,49 @@ class LoadDetailFragment : Fragment() {
 
             with(dialoBinding) {
                 btnTeklifVer.setOnClickListener {
+                    documentId?.let {
+                        val documentRef = database.collection("Post").document(documentId!!)
+                        documentRef.get().addOnSuccessListener { documentSnapshot ->
+                            if (documentSnapshot.exists()) {
+                                val uuid = auth.currentUser!!.uid
+                                val offerPrice = priceText.text.toString().trim()
+                                val userData = documentSnapshot.data
+                                val postUser = userData?.get("postUser") as String
+                                val documentId = userData["documentId"] as String
+                                val postUserUUID = userData["userId"] as String
+                                val bidderUserEmail = auth.currentUser?.email.toString()
+                                val offerMap = hashMapOf(
+                                    "postUser" to postUser,
+                                    "postUserUUID" to postUserUUID,
+                                    "documentId" to documentId,
+                                    "bidderUser" to uuid,
+                                    "offerPrice" to offerPrice,
+                                    "bidderUserEmail" to bidderUserEmail,
 
+                                )
+
+
+                                val userCollectionRef = database.collection("User")
+                                val userDocRef = userCollectionRef.document(postUserUUID)
+                                val offerCollectionRef = userDocRef.collection("Offers")
+                                val newAdressDocRef = offerCollectionRef.document()
+                                newAdressDocRef.set(offerMap).addOnCompleteListener { task ->
+                                    if (task.isSuccessful) {
+                                        requireContext().showToast("Teklif Gönderildi")
+                                        dialog.dismiss()
+                                    }
+                                }.addOnFailureListener {
+                                    requireContext().showToast(it.localizedMessage)
+                                }
+
+                            }
+                        }
+                    }
                 }
             }
-
             dialog.show()
 
         }
     }
-
 
 }

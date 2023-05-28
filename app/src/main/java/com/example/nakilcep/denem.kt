@@ -1,5 +1,6 @@
 package com.example.nakilcep
 
+/*
 interface MyInterface {
     var prop: Int
     val propertyWithImplementation: Int get() = 12
@@ -19,12 +20,21 @@ fun main() {
     impl.prop = 3
     impl.propertyWithImplementation = 4
     print(impl.prop + impl.propertyWithImplementation)
-
-
-}/*
+}
+*/
+/*
 fun main() {
     var a = 1
     var b = 2
     a = b.also { b = a }.apply { b *= 2 }
     print("a:$a, b:$b")
+}
+var stringRepresentation: String = "4"
+    set(value) {
+        print("$value")
+    }
+
+fun main() {
+    stringRepresentation = "5"
+    print(stringRepresentation)
 }*/

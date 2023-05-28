@@ -32,7 +32,18 @@ class LoadsFragment : Fragment() {
         database = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
         recyclerAdapter()
+        verileriGetir()
 //        val userId = auth. currentUser!!.uid
+
+    }
+
+    private fun recyclerAdapter() {
+        var layoutManager = LinearLayoutManager(requireContext())
+        binding.loadsFragmentRecyclerView.layoutManager = layoutManager
+        recyclerViewLoadsAdapter = LoadsAdapter(requireContext(), loadsList)
+        binding.loadsFragmentRecyclerView.adapter = recyclerViewLoadsAdapter
+    }
+    fun verileriGetir(){
         database.collection("Post").addSnapshotListener { value, error ->
 
             if (value != null && !value.isEmpty) {
@@ -56,13 +67,6 @@ class LoadsFragment : Fragment() {
                 recyclerViewLoadsAdapter.notifyDataSetChanged()//yeni veri geldi haberin olsun!
             }
         }
-    }
-
-    private fun recyclerAdapter() {
-        var layoutManager = LinearLayoutManager(requireContext())
-        binding.loadsFragmentRecyclerView.layoutManager = layoutManager
-        recyclerViewLoadsAdapter = LoadsAdapter(requireContext(), loadsList)
-        binding.loadsFragmentRecyclerView.adapter = recyclerViewLoadsAdapter
     }
 
 }

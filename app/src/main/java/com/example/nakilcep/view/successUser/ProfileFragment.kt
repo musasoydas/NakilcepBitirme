@@ -8,15 +8,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.nakilcep.R
 import com.example.nakilcep.databinding.FragmentNewAddressBinding
 import com.example.nakilcep.databinding.FragmentProfileBinding
+import com.example.nakilcep.extensions.showToast
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var auth: FirebaseAuth
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,23 +29,43 @@ class ProfileFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         cikisButonuListener()
         allTransportListener()
-
+        completeTransportListener()
+        onGoingTransportListener()
     }
 
 
     fun cikisButonuListener() {
-        binding.cikisYap.setOnClickListener {
+        binding.exitCons.setOnClickListener {
             auth.signOut()
-//            val action = ProfileFragmentDirections.actionProfileFragmentToNavGraph()
-//            findNavController().navigate(action)
+
             Toast.makeText(requireContext(), "çıkış yapıldı", Toast.LENGTH_SHORT).show()
             requireActivity().finish()
         }
     }
     fun allTransportListener(){
-        binding.btnAllTransport.setOnClickListener {
-            val action=ProfileFragmentDirections.actionProfileFragmentToAllTransport()
-            findNavController().navigate(action)
+
+        binding.allTransport.setOnClickListener {
+         requireContext().showToast("all tıklandı")
+
+
+//            val action=ProfileFragmentDirections.actionProfileFragmentToAllTransport()
+//            findNavController().navigate(action)
+        }
+    }
+    fun onGoingTransportListener(){
+
+        binding.onGoingCons.setOnClickListener {
+            requireContext().showToast("onGoing tıklandı")
+//            val action=ProfileFragmentDirections.actionProfileFragmentToAllTransport()
+//            findNavController().navigate(action)
+        }
+    }
+    fun completeTransportListener(){
+
+        binding.completedCons.setOnClickListener {
+            requireContext().showToast("complete tıklandı")
+//            val action=ProfileFragmentDirections.actionProfileFragmentToAllTransport()
+//            findNavController().navigate(action)
         }
     }
 

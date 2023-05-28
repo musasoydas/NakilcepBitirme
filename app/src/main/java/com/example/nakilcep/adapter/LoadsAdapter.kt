@@ -18,13 +18,13 @@ class LoadsAdapter(val context: Context, val loadsList: ArrayList<Loads>) :
             with(binding) {
                 recyclerRowLoadTitle.text = loads.loadTitle
                 recyclerRowFromWhere.text = loads.loadingPoint
-                recyclerRowToWhere.text = "${loadsList[position].deliveryPoint}"
-                recyclerRowTakeDate.text = "${loadsList[position].loadTakeDate}"
-                recyclerRowGiveDate.text = "${loadsList[position].loadGiveDate}"
-                Picasso.get().load(loadsList[position].downloadUrl).into(recyclerRowImageView)
+                recyclerRowToWhere.text = loads.deliveryPoint
+                recyclerRowTakeDate.text = loads.loadTakeDate
+                recyclerRowGiveDate.text = loads.loadGiveDate
+                Picasso.get().load(loads.downloadUrl).into(recyclerRowImageView)
                 recyclerRowCardView.setOnClickListener {
                     val action =
-                        LoadsFragmentDirections.actionLoadsFragmentToLoadDetailFragment(loadsList[position].documentId)
+                        LoadsFragmentDirections.actionLoadsFragmentToLoadDetailFragment(loads.documentId)
                     Navigation.findNavController(binding.root).navigate(action)
                 }
 
@@ -37,11 +37,7 @@ class LoadsAdapter(val context: Context, val loadsList: ArrayList<Loads>) :
             TasimalarRecyclerRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return LoadsViewHolder(binding)
     }
-
-    override fun getItemCount(): Int {
-        return loadsList.size
-    }
-
+    override fun getItemCount(): Int = loadsList.size
     override fun onBindViewHolder(holder: LoadsViewHolder, position: Int) {
         holder.bind(loadsList[position])
 

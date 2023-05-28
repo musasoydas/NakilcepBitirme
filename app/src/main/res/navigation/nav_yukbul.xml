@@ -66,6 +66,12 @@
         <action
             android:id="@+id/action_profileFragment_to_allTransport"
             app:destination="@id/allTransport" />
+        <action
+            android:id="@+id/action_profileFragment_to_ongoingTransport"
+            app:destination="@id/ongoingTransport" />
+        <action
+            android:id="@+id/action_profileFragment_to_completedTransport"
+            app:destination="@id/completedTransport" />
     </fragment>
     <fragment
         android:id="@+id/newAddress"
