@@ -176,7 +176,7 @@ class CreatLoadFragment : Fragment() {
                             "loadTitle" to loadTitle.text.toString(),
                             "postDate" to Timestamp.now(),
                             "userId" to auth.currentUser!!.uid,
-                            "postStatus" to false,
+                            "postStatus" to "",
                             "loadGenus" to loadTypeDropdown.text.toString(),
                             "loadType" to loadTypeDropdown2.text.toString(),
                             "loadingType" to loadTypeDropdown3.text.toString(),

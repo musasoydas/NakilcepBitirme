@@ -25,10 +25,8 @@ class RegisteredAddress : Fragment() {
     private lateinit var binding: FragmentRegisteredAddressBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseFirestore
-
     lateinit var preferences: SharedPreferences
     lateinit var editor: SharedPreferences.Editor
-
     private val args: RegisteredAddressArgs by navArgs()
 
     private lateinit var recyclerViewAdapter: AddressAdapter
@@ -68,7 +66,7 @@ class RegisteredAddress : Fragment() {
                         listAddress.clear()
                         for (document in documents) {
                             var myAddress = Address(
-//                                document.id,
+
                                 document.get("currentUser") as String?,//bize any geldipinden cash ettik
                                 document.get("authorizedName") as String?,
                                 document.get("authorizedPhone") as String?,
@@ -87,10 +85,7 @@ class RegisteredAddress : Fragment() {
                     }
                 }
             }
-
-
     }
-
     private fun onAddressClick(address: String) {
         setFragmentResult(
             "CreateLoad",

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileRecyclerRowCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="30dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/profileRecyclerRowLoadTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="5dp"
+            android:text="Ev"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="122dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:elevation="20dp"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/profileRecyclerRowImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:elevation="15dp"
+                android:src="#000000" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/rec1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Nereden : "
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileRecyclerRowLoadTitle" />
+
+        <TextView
+            android:id="@+id/profileRecyclerRowFromWhere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:padding="5dp"
+            android:text="kocaeli"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/rec1"
+            app:layout_constraintStart_toEndOf="@+id/rec1" />
+
+        <TextView
+            android:id="@+id/rec2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Nereye : "
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rec1" />
+
+
+        <TextView
+            android:id="@+id/profileRecyclerRowToWhere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:padding="5dp"
+            android:text="ödalwödlşaöwödşöawd"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/rec2"
+            app:layout_constraintStart_toEndOf="@+id/rec2" />
+
+        <TextView
+            android:id="@+id/rec3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Alış Tarihi :"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/rec2"
+            app:layout_constraintTop_toBottomOf="@+id/rec2" />
+
+        <TextView
+            android:id="@+id/profileRecyclerRowTakeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:padding="5dp"
+            android:text="ödalwöd"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/rec3"
+            app:layout_constraintStart_toEndOf="@+id/rec3" />
+
+        <TextView
+            android:id="@+id/rec4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:padding="5dp"
+            android:paddingEnd="0dp"
+            android:text="Teslim Tarihi : "
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/profileRecyclerRowTakeDate"
+            app:layout_constraintStart_toEndOf="@+id/profileRecyclerRowTakeDate" />
+
+        <TextView
+            android:id="@+id/recyclerRowGiveDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:padding="5dp"
+            android:text="09/10/2023"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/rec4"
+            app:layout_constraintStart_toEndOf="@+id/rec4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

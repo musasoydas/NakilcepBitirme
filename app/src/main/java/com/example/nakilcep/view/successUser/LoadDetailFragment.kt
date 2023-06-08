@@ -109,19 +109,25 @@ class LoadDetailFragment : Fragment() {
                                     "bidderUser" to uuid,
                                     "offerPrice" to offerPrice,
                                     "bidderUserEmail" to bidderUserEmail,
-
+                                    "offerStatus" to "null",
+                                    "offerId" to ""
                                 )
 
 
                                 val userCollectionRef = database.collection("User")
                                 val userDocRef = userCollectionRef.document(postUserUUID)
                                 val offerCollectionRef = userDocRef.collection("Offers")
-                                val newAdressDocRef = offerCollectionRef.document()
-                                newAdressDocRef.set(offerMap).addOnCompleteListener { task ->
+//                                val newAdressDocRef = offerCollectionRef.document()
+                                offerCollectionRef.add(offerMap).addOnCompleteListener { task ->
                                     if (task.isSuccessful) {
                                         requireContext().showToast("Teklif Gönderildi")
                                         dialog.dismiss()
                                     }
+                                }.addOnSuccessListener { documentReferences ->
+                                    val belgeId = documentReferences.id
+                                    documentReferences.update("offerId", belgeId)
+
+
                                 }.addOnFailureListener {
                                     requireContext().showToast(it.localizedMessage)
                                 }

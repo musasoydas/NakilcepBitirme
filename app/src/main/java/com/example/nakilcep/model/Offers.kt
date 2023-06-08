@@ -5,5 +5,6 @@ data class Offers(
     val offerPrice: String?,
     val downloadUrl: String?,
     val loadTitle: String?,
-//    val documentId:String?
+//    val offerStatus:String,
+    val documentId:String?
 )

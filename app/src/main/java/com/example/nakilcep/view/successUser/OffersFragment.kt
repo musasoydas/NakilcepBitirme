@@ -69,7 +69,8 @@ class OffersFragment : Fragment() {
                                                         bidderUserEmail,
                                                         offerPrice,
                                                         downloadUrl,
-                                                        loadTitle
+                                                        loadTitle,
+                                                        documentId
 
                                                     )
                                                     offerList.add(downloadOffer)
@@ -88,11 +89,13 @@ class OffersFragment : Fragment() {
                 }
             }
     }
-
+    private fun onOfferClick(offerDocumetId: String) {
+        database.collection("Post").document(offerDocumetId).update("postStatus","ongoing")
+    }
     private fun recyclerAdapter() {
         val layoutManager = LinearLayoutManager(requireContext())
         binding.offerFragmentRecyclerView.layoutManager = layoutManager
-        recyclerViewOffersAdapter = OfferAdapter(offerList)
+        recyclerViewOffersAdapter = OfferAdapter(offerList,::onOfferClick)
         binding.offerFragmentRecyclerView.adapter = recyclerViewOffersAdapter
     }
 

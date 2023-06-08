@@ -37,7 +37,7 @@ class LoadsFragment : Fragment() {
 
     }
 
-    private fun recyclerAdapter() {
+    fun recyclerAdapter() {
         var layoutManager = LinearLayoutManager(requireContext())
         binding.loadsFragmentRecyclerView.layoutManager = layoutManager
         recyclerViewLoadsAdapter = LoadsAdapter(requireContext(), loadsList)
